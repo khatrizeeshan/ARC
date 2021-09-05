@@ -3,7 +3,7 @@ namespace ARC.Domain
     using System;
     using System.Collections.Generic;
 
-    public class AuthorizationRequest : Entity, IEventLog, IRequestDocument
+    public class AuthorizationRequest : Entity<int>, IEventLog, IRequestDocument
     {
         public int EngagementId { get; set; }
         public Engagement Engagement { get; set; }

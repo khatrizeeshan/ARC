@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ARC.Persistance
 {
-    public static class DecimalPrecisionConfiguration
+    public static class DecimalHelper
     {
         public static ModelBuilder SetDefaultPrecision(this ModelBuilder modelBuilder, int precision, int scale)
         {

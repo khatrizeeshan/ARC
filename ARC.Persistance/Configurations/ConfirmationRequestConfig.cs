@@ -8,6 +8,7 @@ namespace ARC.Persistance
     {
         public void Configure(EntityTypeBuilder<ConfirmationRequest> builder)
         {
+            builder.Ignore(e => e.EventLogs);
         }
     }
 }

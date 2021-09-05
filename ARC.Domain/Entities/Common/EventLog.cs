@@ -3,15 +3,17 @@ using System;
 
 namespace ARC.Domain
 {
-    public class EventLog : Entity
+    public class EventLog : Entity<int>
     {
-        public string Entity { get; set; }
+        public string AssociatedWith { get; set; }
 
-        public int EntityId { get; set; }
+        public int? AssociatedWithId { get; set; }
+
+        public string Username { get; set; }
 
         public string Event { get; set; }
 
-        public string Note { get; set; }
+        public string Message { get; set; }
 
         public DateTime Timestamp { get; set; }
     }

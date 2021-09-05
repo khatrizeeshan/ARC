@@ -3,12 +3,12 @@ namespace ARC.Domain
     using System;
     using System.Collections.Generic;
 
-    public class ConfirmationRequest : Entity, IEventLog, IRequestDocument
+    public class ConfirmationRequest : Entity<int>, IEventLog, IRequestDocument
     {
         public int AuthorizationRequestId { get; set; }
         public AuthorizationRequest AuthorizationRequest { get; set; }
 
-        public string Customer { get; set; }
+        public string CustomerName { get; set; }
         public string InvoiceId { get; set; }
         public decimal BalanceAmount { get; set; }
         public decimal? ChallengedAmount { get; set; }
