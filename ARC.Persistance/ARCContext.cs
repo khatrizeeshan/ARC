@@ -17,6 +17,8 @@ namespace ARC.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.SetDefaultPrecision(18, 2);
+
             modelBuilder.ApplyConfiguration(new ClientConfig());
             modelBuilder.ApplyConfiguration(new EngagementConfig());
             modelBuilder.ApplyConfiguration(new AuthorizationRequestConfig());

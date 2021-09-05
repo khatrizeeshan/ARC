@@ -8,7 +8,6 @@ namespace ARC.Persistance
     {
         public void Configure(EntityTypeBuilder<Engagement> builder)
         {
-
         }
     }
 }

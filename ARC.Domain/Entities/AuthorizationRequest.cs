@@ -5,8 +5,6 @@ namespace ARC.Domain
 
     public class AuthorizationRequest : Entity, IEventLog, IRequestDocument
     {
-        public int ClientId { get; set; }
-        public Client Client { get; set; }
         public int EngagementId { get; set; }
         public Engagement Engagement { get; set; }
 
