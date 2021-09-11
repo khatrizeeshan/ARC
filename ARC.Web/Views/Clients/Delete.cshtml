@@ -1,0 +1,38 @@
+﻿@model ClientViewModel
+@{
+    ViewData["Title"] = "Delete Client";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div>
+        <h4>Client</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Industry)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Industry)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <form asp-controller="Clients" asp-action="Delete" method="post">
+            <button type="submit">Delete</button> | <a asp-controller="Clients" asp-action="Index">Back</a>
+        </form>
+        
+    </div>
+</div>

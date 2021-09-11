@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using ARC.Domain;
-using ARC.Domain.Interfaces;
+using ARC.Domain;
 using ARC.Persistance;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

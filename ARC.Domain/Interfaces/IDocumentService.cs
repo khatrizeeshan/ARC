@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ARC.Domain.Interfaces
+namespace ARC.Domain
 {
     public interface IDocumentService<T> 
         where T : IRequestDocument

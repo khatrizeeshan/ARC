@@ -5,15 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AuthorizationRequests\Queries\" />
-    <Folder Include="Clients\Queries\" />
-    <Folder Include="ConfirmationRequests\Queries\" />
-    <Folder Include="Engagements\Queries\" />
+    <Compile Remove="AuthorizationRequests\**" />
+    <Compile Remove="Clients\Commands\UpsertClient\**" />
+    <Compile Remove="ConfirmationRequests\**" />
+    <Compile Remove="Engagements\**" />
+    <EmbeddedResource Remove="AuthorizationRequests\**" />
+    <EmbeddedResource Remove="Clients\Commands\UpsertClient\**" />
+    <EmbeddedResource Remove="ConfirmationRequests\**" />
+    <EmbeddedResource Remove="Engagements\**" />
+    <None Remove="AuthorizationRequests\**" />
+    <None Remove="Clients\Commands\UpsertClient\**" />
+    <None Remove="ConfirmationRequests\**" />
+    <None Remove="Engagements\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.3.3" />
     <PackageReference Include="MediatR" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>

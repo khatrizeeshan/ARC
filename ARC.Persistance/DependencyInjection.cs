@@ -9,7 +9,20 @@ namespace ARC.Persistance
         public static IServiceCollection AddPersistance(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddDbContextFactory<ApplicationDbContext>(options =>
+            {
+#if DEBUG
+                options.UseSqlServer(connectionString)
+                    .EnableSensitiveDataLogging();
+#else
+                options.UseSqlServer(connectionString);
+#endif
+            });
+
+            services.AddScoped(p =>
+                p.GetRequiredService<IDbContextFactory<ApplicationDbContext>>()
+                .CreateDbContext());
 
             return services;
         }

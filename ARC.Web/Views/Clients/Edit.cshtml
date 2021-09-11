@@ -1,0 +1,20 @@
+﻿@using ARC.Web.Models
+
+@model ClientViewModel
+@{
+    ViewData["Title"] = "Create Client";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <form asp-controller="Clients" asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        Code:  <input asp-for="Code" autofocus /> <br />
+        <span asp-validation-for="Name"></span><br />
+        Name: <input asp-for="Name" /><br />
+        <span asp-validation-for="Name"></span><br />
+        Industry: <input asp-for="Industry" /><br />
+        <span asp-validation-for="Industry"></span><br />
+        <button type="submit">Update</button> | <a asp-controller="Clients" asp-action="Index">Back</a>
+    </form>
+</div>

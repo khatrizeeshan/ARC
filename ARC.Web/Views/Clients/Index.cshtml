@@ -1,0 +1,40 @@
+﻿@using ARC.App.Clients
+ 
+@model ClientsList
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    @*<form asp-controller="Clients" asp-action="Index" method="get">
+            Filter:  <input asp-for="Filter" /> <br />
+            <button type="submit">Filter</button>
+    </form>*@
+    <a asp-controller="Clients" asp-action="Create">New</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Industry</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in Model.Clients)
+            {
+                <tr>
+                    <td>@client.Code</td>
+                    <td>@client.Name</td>
+                    <td>@client.Industry</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@client.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@client.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@client.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
