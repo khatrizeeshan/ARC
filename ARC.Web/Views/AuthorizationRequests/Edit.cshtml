@@ -1,0 +1,24 @@
+﻿@using ARC.Web.Models
+
+@model AuthorizationRequestUpsertViewModel
+@{
+    ViewData["Title"] = "Create AuthorizationRequest";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <form asp-controller="AuthorizationRequests" asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        Engagement: <select asp-for="EngagementId" asp-items="@(new SelectList(Model.Engagements,"Id","Name"))">
+            <option>Please select engagement</option>
+        </select><br />
+        <span asp-validation-for="EngagementId"></span><br />
+        Contact Name: <input asp-for="ContactName" /><br />
+        <span asp-validation-for="ContactName"></span><br />
+        Contact Email: <input asp-for="ContactEmail" /><br />
+        <span asp-validation-for="ContactEmail"></span><br />
+        Maximum Reminders: <input asp-for="MaximumReminders" /><br />
+        <span asp-validation-for="MaximumReminders"></span><br />
+        <button type="submit">Update</button> | <a asp-controller="AuthorizationRequests" asp-action="Index">Back</a>
+    </form>
+</div>

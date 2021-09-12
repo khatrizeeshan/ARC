@@ -5,13 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="AuthorizationRequests\**" />
     <Compile Remove="Clients\Commands\UpsertClient\**" />
     <Compile Remove="ConfirmationRequests\**" />
-    <EmbeddedResource Remove="AuthorizationRequests\**" />
     <EmbeddedResource Remove="Clients\Commands\UpsertClient\**" />
     <EmbeddedResource Remove="ConfirmationRequests\**" />
-    <None Remove="AuthorizationRequests\**" />
     <None Remove="Clients\Commands\UpsertClient\**" />
     <None Remove="ConfirmationRequests\**" />
   </ItemGroup>

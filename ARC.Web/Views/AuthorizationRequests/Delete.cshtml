@@ -1,0 +1,50 @@
+﻿@model AuthorizationRequestViewModel
+@{
+    ViewData["Title"] = "Delete AuthorizationRequest";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div>
+        <h4>AuthorizationRequest</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ClientName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ClientName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EngagementName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EngagementName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactEmail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactEmail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MaximumReminders)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MaximumReminders)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <form asp-controller="AuthorizationRequests" asp-action="Delete" method="post">
+            <button type="submit">Delete</button> | <a asp-controller="AuthorizationRequests" asp-action="Index">Back</a>
+        </form>
+
+    </div>
+</div>

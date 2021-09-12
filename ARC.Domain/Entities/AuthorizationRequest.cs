@@ -13,9 +13,11 @@ namespace ARC.Domain
         public int MaximumReminders { get; set; }
         public int RemindersCount { get; set; }
 
+        public bool HasSent { get; set; }
+
         public string ContactName { get; set; }
         public string ContactEmail { get; set; }
-        public DateTime SubmittedOn { get; set; }
+        public DateTime? SubmittedOn { get; set; }
         public DateTime? RepliedOn { get; set; }
         public DateTime? ReceivedOn { get; set; }
         public string Response { get; set; }

@@ -1,0 +1,46 @@
+﻿@using ARC.App.AuthorizationRequests
+ 
+@model AuthorizationRequestsList
+@{
+    ViewData["Title"] = "AuthorizationRequests";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    @*<form asp-controller="AuthorizationRequests" asp-action="Index" method="get">
+            Filter:  <input asp-for="Filter" /> <br />
+            <button type="submit">Filter</button>
+    </form>*@
+    <a asp-controller="AuthorizationRequests" asp-action="Create">New</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Client</th>
+                <th scope="col">Engagement</th>
+                <th scope="col">Contact Name</th>
+                <th scope="col">Requestor Name</th>
+                <th scope="col">Submitted On</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var authorizationRequest in Model.AuthorizationRequests)
+            {
+            <tr>
+                <td>@authorizationRequest.ClientName</td>
+                <td>@authorizationRequest.EngagementName</td>
+                <td>@authorizationRequest.ContactName</td>
+                <td>@authorizationRequest.RequestorName</td>
+                <td>@authorizationRequest.SubmittedOn</td>
+                <td>@authorizationRequest.DocumentStatus</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@authorizationRequest.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@authorizationRequest.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@authorizationRequest.Id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

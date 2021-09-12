@@ -4,9 +4,10 @@ namespace ARC.Domain
 {
     public interface IRequestDocument
     {
+        bool HasSent { get; set; }
         string ContactName { get; set; }
         string ContactEmail { get; set; }
-        DateTime SubmittedOn { get; set; }
+        DateTime? SubmittedOn { get; set; }
         DateTime? RepliedOn { get; set; }
         DateTime? ReceivedOn { get; set; }
         string Response { get; set; }

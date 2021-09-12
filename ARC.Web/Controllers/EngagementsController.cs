@@ -54,6 +54,7 @@ namespace ARC.Web.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
+            model.Clients = await GetClients();
             return View(model);
         }
 
@@ -92,6 +93,7 @@ namespace ARC.Web.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
+            model.Clients = await GetClients();
             return View(model);
         }
 
