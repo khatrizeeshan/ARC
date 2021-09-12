@@ -1,0 +1,46 @@
+﻿@using ARC.App.Engagements
+ 
+@model EngagementsList
+@{
+    ViewData["Title"] = "Engagements";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    @*<form asp-controller="Engagements" asp-action="Index" method="get">
+            Filter:  <input asp-for="Filter" /> <br />
+            <button type="submit">Filter</button>
+    </form>*@
+    <a asp-controller="Engagements" asp-action="Create">New</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Client</th>
+                <th scope="col">Manager</th>
+                <th scope="col">Partner</th>
+                <th scope="col">Group</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var engagement in Model.Engagements)
+            {
+            <tr>
+                <td>@engagement.Code</td>
+                <td>@engagement.Name</td>
+                <td>@engagement.ClientName</td>
+                <td>@engagement.ManagerName</td>
+                <td>@engagement.PartnerName</td>
+                <td>@engagement.GroupName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@engagement.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@engagement.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@engagement.Id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

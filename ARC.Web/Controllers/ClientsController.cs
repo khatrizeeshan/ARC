@@ -117,8 +117,8 @@ namespace ARC.Web.Controllers
 
         private async Task<ClientViewModel> GetClientViewModel(int id)
         {
-            var command = new GetClientDetailQuery() { Id = id };
-            var result = await Mediator.Send(command);
+            var query = new GetClientDetailQuery() { Id = id };
+            var result = await Mediator.Send(query);
 
             var model = Mapper.Map<ClientViewModel>(result);
             return model;

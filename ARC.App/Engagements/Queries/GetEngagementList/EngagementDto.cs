@@ -1,8 +1,6 @@
 ﻿using ARC.App.Common.Mappings;
 using ARC.Domain;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
 
 namespace ARC.App.Engagements
 {
@@ -16,13 +14,11 @@ namespace ARC.App.Engagements
         public string ManagerName { get; set; }
         public string PartnerName { get; set; }
         public string GroupName { get; set; }
-        public DateTime? FieldWorkEndDate { get; set; }
-        public DateTime? ClientYearEndDate { get; set; }
-        public IList<string> TeamEmailAddresses { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Engagement, EngagementDto>();
         }
+
     }
 }

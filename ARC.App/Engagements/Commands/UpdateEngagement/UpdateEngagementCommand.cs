@@ -63,7 +63,7 @@ namespace ARC.App.Engagements
                 entity.FieldWorkEndDate = request.FieldWorkEndDate;
                 entity.ClientYearEndDate = request.ClientYearEndDate;
 
-                if(request.TeamEmailAddresses != null && request.TeamEmailAddresses.Any())
+                if (request.TeamEmailAddresses != null && request.TeamEmailAddresses.Any())
                 {
                     entity.TeamEmailAddresses = string.Join(';', request.TeamEmailAddresses);
                 }
@@ -71,7 +71,6 @@ namespace ARC.App.Engagements
                 {
                     entity.TeamEmailAddresses = null;
                 }
-
 
                 await context.SaveChangesAsync(cancellationToken);
 

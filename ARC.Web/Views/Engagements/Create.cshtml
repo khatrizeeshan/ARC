@@ -1,0 +1,46 @@
+﻿@using ARC.App.Engagements
+
+@model EngagementUpsertViewModel
+@{
+    ViewData["Title"] = "Create Engagement";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <form asp-controller="Engagements" asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        Code:  <input asp-for="Code" autofocus /> <br />
+        <span asp-validation-for="Name"></span><br />
+        Name: <input asp-for="Name" /><br />
+        <span asp-validation-for="Name"></span><br />
+        Client: <select asp-for="ClientId" asp-items="@(new SelectList(Model.Clients,"Id","Name"))">
+            <option>Please select client</option>
+        </select><br />
+        <span asp-validation-for="ClientId"></span><br />
+        Manager: <input asp-for="ManagerName" /><br />
+        <span asp-validation-for="ManagerName"></span><br />
+        Partner: <input asp-for="PartnerName" /><br />
+        <span asp-validation-for="PartnerName"></span><br />
+        Group: <input asp-for="GroupName" /><br />
+        <span asp-validation-for="GroupName"></span><br />
+        Field Work End Date: <input asp-for="FieldWorkEndDate" /><br />
+        <span asp-validation-for="FieldWorkEndDate"></span><br />
+        Client Year End Date: <input asp-for="ClientYearEndDate" /><br />
+        <span asp-validation-for="ClientYearEndDate"></span><br />
+        Team Email Addresses: <input asp-for="TeamEmailAddresses" /><br />
+        <button type="submit">Create</button> | <a asp-controller="Engagements" asp-action="Index">Back</a>
+    </form>
+</div>
+
+<link href="~/css/multiple-emails.css" rel="stylesheet" />
+@section Scripts
+{
+    <script src="~/js/multiple-emails.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#TeamEmailAddresses').multiple_emails({ theme: "Basic" });
+        });
+
+    </script>
+}

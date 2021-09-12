@@ -53,7 +53,6 @@ namespace ARC.App.Engagements
                     GroupName = request.GroupName,
                     FieldWorkEndDate = request.FieldWorkEndDate,
                     ClientYearEndDate = request.ClientYearEndDate,
-                    TeamEmailAddresses = string.Join(';', request.TeamEmailAddresses)
                 };
 
                 if (request.TeamEmailAddresses != null && request.TeamEmailAddresses.Any())
