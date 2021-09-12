@@ -28,6 +28,8 @@ namespace ARC.App.AuthorizationRequests
                 using var context = _dbFactory.CreateDbContext();
 
                 var entity = await context.AuthorizationRequests
+                    .Include(e => e.Engagement)
+                    .ThenInclude(e => e.Client)
                     .SingleOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
                 if (entity == null)
@@ -41,6 +43,9 @@ namespace ARC.App.AuthorizationRequests
                 }
 
                 await _service.CreateAsync(entity);
+                await context.SaveChangesAsync(cancellationToken);
+
+                await _service.SendAsync(entity);
                 await context.SaveChangesAsync(cancellationToken);
 
                 return entity.Id;

@@ -10,13 +10,7 @@ namespace ARC.App.Clients
 {
     public class DeleteClientCommand : IRequest<int>
     {
-        public int? Id { get; set; }
-
-        public string Code { get; set; }
-
-        public string Name { get; set; }
-
-        public string Industry { get; set; }
+        public int Id { get; set; }
 
         public class DeleteClientCommandHandler : IRequestHandler<DeleteClientCommand, int>
         {

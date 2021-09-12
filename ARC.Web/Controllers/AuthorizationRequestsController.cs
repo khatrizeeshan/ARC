@@ -131,6 +131,36 @@ namespace ARC.Web.Controllers
             }
         }
 
+        // GET: AuthorizationRequestsController/Delete/5
+        public async Task<ActionResult> Send(int id)
+        {
+            var model = await GetAuthorizationRequestViewModel(id);
+            if (model.HasSent)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Send(int id, IFormCollection collection)
+        {
+            try
+            {
+                var command = new SendAuthorizationRequestCommand() { Id = id };
+                var result = await Mediator.Send(command);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+
+                var model = await GetAuthorizationRequestViewModel(id);
+                return View(model);
+            }
+        }
+
         private async Task<AuthorizationRequestUpsertViewModel> GetAuthorizationRequestUpsertViewModel(int id)
         {
             var result = await GetAuthorizationRequestDetail(id);

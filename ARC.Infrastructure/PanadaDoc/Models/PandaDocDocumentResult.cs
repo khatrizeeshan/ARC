@@ -2,7 +2,7 @@
 
 namespace ARC.Infrastructure
 {
-    public class PandaDocCreateDocumentResult
+    public class PandaDocDocumentResult
     {
         public string id { get; set; }
         public string status { get; set; }

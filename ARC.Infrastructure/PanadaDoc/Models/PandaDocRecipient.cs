@@ -8,6 +8,5 @@
 
         public string last_name { get; set; }
 
-        public string role { get; set; }
     }
 }

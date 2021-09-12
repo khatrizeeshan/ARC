@@ -42,11 +42,10 @@
         </dl>
     </div>
     <div>
-        @if (!Model.HasSent)
-        {
+        <form asp-controller="AuthorizationRequests" asp-action="Send" method="post">
+            <button type="submit">Send</button> |
             <a asp-controller="AuthorizationRequests" asp-action="Edit" asp-route-id="@Model.Id">Edit</a><span> | </span>
-            <a asp-controller="AuthorizationRequests" asp-action="Send" asp-route-id="@Model.Id">Send</a><span> | </span>
-        }
-        <a asp-controller="AuthorizationRequests" asp-action="Index">Back</a>
+            <a asp-controller="AuthorizationRequests" asp-action="Index">Back</a>
+        </form>
     </div>
 </div>
