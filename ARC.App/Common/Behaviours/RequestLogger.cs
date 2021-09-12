@@ -20,7 +20,7 @@ namespace ARC.App.Common
         {
             var name = typeof(TRequest).Name;
 
-            _logger.LogInformation("Northwind Request: {Name} {@UserId} {@Request}", 
+            _logger.LogInformation("ARC Request: {Name} {@UserId} {@Request}", 
                 name, _currentUserService.UserId, request);
 
             return Task.CompletedTask;
