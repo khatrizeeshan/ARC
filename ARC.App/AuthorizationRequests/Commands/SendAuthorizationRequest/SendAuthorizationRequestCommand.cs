@@ -8,20 +8,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ARC.App.AuthorizationRequests
 {
-    public class DeleteAuthorizationRequestCommand : IRequest<int>
+    public class SendAuthorizationRequestCommand : IRequest<int>
     {
         public int Id { get; set; }
 
-        public class DeleteAuthorizationRequestCommandHandler : IRequestHandler<DeleteAuthorizationRequestCommand, int>
+        public class SendAuthorizationRequestCommandHandler : IRequestHandler<SendAuthorizationRequestCommand, int>
         {
             private readonly IDbContextFactory<ApplicationDbContext> _dbFactory;
+            private readonly IDocumentService<AuthorizationRequest> _service;
 
-            public DeleteAuthorizationRequestCommandHandler(IDbContextFactory<ApplicationDbContext> dbFactory)
+            public SendAuthorizationRequestCommandHandler(IDbContextFactory<ApplicationDbContext> dbFactory, IDocumentService<AuthorizationRequest> service)
             {
                 _dbFactory = dbFactory;
+                _service = service;
             }
 
-            public async Task<int> Handle(DeleteAuthorizationRequestCommand request, CancellationToken cancellationToken)
+            public async Task<int> Handle(SendAuthorizationRequestCommand request, CancellationToken cancellationToken)
             {
                 using var context = _dbFactory.CreateDbContext();
 
@@ -35,10 +37,10 @@ namespace ARC.App.AuthorizationRequests
 
                 if(entity.HasSent)
                 {
-                    throw new BadRequestException("Request has been sent, cannot delete.");
+                    throw new BadRequestException("Request has been sent, cannot be sent again.");
                 }
 
-                context.Remove(entity);
+                await _service.CreateAsync(entity);
                 await context.SaveChangesAsync(cancellationToken);
 
                 return entity.Id;

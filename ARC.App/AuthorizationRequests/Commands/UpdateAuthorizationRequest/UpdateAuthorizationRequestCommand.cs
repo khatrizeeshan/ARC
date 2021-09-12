@@ -46,7 +46,7 @@ namespace ARC.App.AuthorizationRequests
 
                 if (entity.HasSent)
                 {
-                    throw new BadRequestException("Request has sent, cannot update.");
+                    throw new BadRequestException("Request has been sent, cannot update.");
                 }
 
                 entity.EngagementId = request.EngagementId;

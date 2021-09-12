@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ARC.Domain\ARC.Domain.csproj" />
+    <ProjectReference Include="..\ARC.Infrastructure\ARC.Infrastructure.csproj" />
     <ProjectReference Include="..\ARC.Persistance\ARC.Persistance.csproj" />
   </ItemGroup>
 

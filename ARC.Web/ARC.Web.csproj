@@ -15,8 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ARC.App\ARC.App.csproj" />
-    <ProjectReference Include="..\ARC.Domain\ARC.Domain.csproj" />
-    <ProjectReference Include="..\ARC.Persistance\ARC.Persistance.csproj" />
   </ItemGroup>
 
 </Project>

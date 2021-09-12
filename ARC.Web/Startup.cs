@@ -7,6 +7,7 @@ using ARC.Persistance;
 using ARC.App;
 using ARC.App.Common;
 using ARC.Web.Services;
+using ARC.Infrastructure;
 using System.Reflection;
 
 namespace ARC.Web
@@ -24,11 +25,8 @@ namespace ARC.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddPersistance(Configuration);
-            
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
-            services.AddApp();
+            services.AddApp(Configuration);
 
             //services.AddHealthChecks()
             //    .AddDbContextCheck<ApplicationDbContext>();
